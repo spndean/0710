@@ -1,0 +1,65 @@
+write less do more
+jQuery是一个js函数框架  
+特点：链式调用、读写合一、浏览器兼容、易扩展插件、ajax封装、隐式遍历
+window.onload是保证外部资源全部加载完毕
+$(function(){});DOM 文档树加载完成执行，函数触发
+$(document).ready(function(){}) DOM 文档树加载完成执行
+原生js获取的为dom对象 
+this是dom中对象单独存在   jQuery中$(this) 
+jQuery对象：$('#box')返回的是jQuery对象；执行jQuery函数返回的就是jQuery对象
+本质是一个伪数组
+$.()   $为jQuery的核心对象
+上线使用cdn远程库：减轻服务器负担；选择靠谱的cdn远程库
+jQuery版本
+1.x   兼容性好  ；文件大
+2.x   部分ie8以下不支持 、 文件 小
+3.x	完全不支持ie8以下、提供新的api、提供不包含ajax动画api的版本
+$.()中可以放的参数
+①、选择器字符串		获取的对应选择器的jQuery对象
+②、dom对象			把dom对象转换成jQuery对象
+③、函数				dom加载完成执行此函数
+④、html标签字符串 	创建标签病封装成jQuery对象
+jQuery两把利器
+①、核心对象			$ 和 jQuery对象
+②、核心函数			$.xxx()	$.()
+选择器
+：odd：even				从0开始  包括0  下标
+工具方法
+$.each()			$.trim()			$.type()			$.isArray()
+$.isFuncrtion()		$.parseJson()
+区分attr、prop：属性值是boolean值时只能用prop
+offset()相对于页面左上角坐标
+position()相对于父元素左上角坐标 
+scrollY  获取设置滚动条Y轴坐标	系统滚动分为两个 body，html  兼容问题让这个两个值相加
+width() height()  content box 宽高
+innerWidth()   content  padding  两者相加的高
+outerWidth（） content  padding  border	三者相加的数值   传值为true 则在加上margin
+过滤：filter（属性选择器）
+children（）找的是子元素    find() 找的是后台元素		子元素是后代元素的一种
+添加元素：
+append（）	appendTo（）	添加到最后	
+prepend（）	prependTo()	添加到最前
+after（）		before（）
+移除元素：
+empty（）移除的是自身标签内的内容
+remove（）移除自身标签整体
+事件绑定与解绑
+$('').click(function(){})
+$().on('click',function(){})
+鼠标移入移出的几种绑定方式
+①、mouseenter、mouseleave
+②、mouseover、mouseout
+③、hover（fun1，fun2）	底层是参照enter leave封装的
+解绑
+off（）  解绑所有事件  dom0方式的解绑	传入事件类型 解绑当前类型事件
+mouseover、mouseenter区别
+over：移入子元素时会重新触发
+enter：只在移入当前元素时触发
+委托（委派）：解决的现象：给初始子元素绑定事件，新添加的元素则没有事件
+将多个子元素的事件监听委托给父元素处理，监听回调加在父元素上
+使用event.target得到触发事件的当前元素
+jQuery：parent.delegate(children,'event',function(){})  //添加委派事件
+parent.delegate()//接触委派   参数传事件 接触这个事件的委派
+优点：新添加的子元素自动添加事件监听，减少事件的监听次数
+
+
